@@ -8,12 +8,20 @@
         url("/fonts/iosevka-bolditalic.woff2");
 }
 
-$font: "Iosevka", sans-serif;
+@font-face {
+font-family: 'Source Serif Pro';
+src: url("/fonts/SourceSerifPro-Regular.ttf"),
+    url("/fonts/SourceSerifPro-Italic.ttf"),
+    url("/fonts/SourceSerifPro-Bold.ttf"),
+    url("/fonts/SourceSerifPro-BoldItalic.ttf");
+}
+
+$font: "Source Serif Pro", sans-serif;
 $font-mono:  "Iosevka", monospace;
 $padding: 8px;
 
 body {
-    font: 100% $font;
+    font: 100% $font-mono;
     background: $black;
     color: $white;
 }
@@ -25,6 +33,12 @@ body {
         "header"
         "main"
         "footer";
+}
+
+body {
+    font-weight: normal;
+    line-height: 1.8em;
+    font-size: 1.2rem;
 }
 
 header {
@@ -133,6 +147,14 @@ p > code {
     color: $gray;
 }
 
+ul, article p {
+    margin-bottom: 1.8rem;
+}
+
+ul ul {
+    margin-bottom: 0rem;
+}
+
 .logo {
     font-size: 26px;
     font-weight: bold;
@@ -162,7 +184,12 @@ p > code {
 
 .content {
     margin: 0 auto;
-    width: 860px;
+    width: 100%;
+    max-width: #{'min(780px, 100%)'};
+}
+
+.article {
+    font-family: $font;
 }
 
 @media (max-width: 1200px) {
