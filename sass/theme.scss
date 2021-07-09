@@ -192,12 +192,14 @@ ul ul {
     font-family: $font;
 }
 
+.header-right {
+    margin-left: 5rem;
+}
+
 @media (max-width: 1200px) {
     .content {
-        margin-left: 1em;
-        margin-right: 1em;
-        width: auto;
-        max-width: 1200px;
+        margin: auto;
+        padding: 0 15px;
         min-width: 200px;
     }
 }
