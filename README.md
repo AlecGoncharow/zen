@@ -15,7 +15,7 @@ github = "github author name"
 twitter = "twitter author name"
 ```
 
-Theme support option on pages and sections
+Theme support option on [pages](https://www.getzola.org/documentation/content/page/) and [sections](https://www.getzola.org/documentation/content/section/)
 ```toml
 [extra]
 # This option will append the value of this string to the string configured for the 
