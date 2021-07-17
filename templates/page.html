@@ -2,14 +2,22 @@
 
 {% block main %}
 <article itemscope itemtype="http://schema.org/BlogPosting">
+
     <div itemprop="headline">
-        <h1>{{ page.title }}</h1>
+        <h1>
+            <a href="..">..</a>/{{ page.title }}
+            {% if page.extra.repo %}
+            <a itemprop="url" href="https://github.com/{{ config.extra.github }}/{{ page.extra.repo }}" target="_blank" rel="noopener noreferrer">
+                <img class="icon" src="{{ config.base_url }}/icons/github.svg" alt="Github">
+            </a>
+            {% endif %}
+        </h1>
         <div class="border"></div>
-        <time datetime="{{ page.date | date(format="%Y-%m-%d") }}" class="date" itemprop="datePublished">
+        <time datetime="{{ page.date | date(format=" %Y-%m-%d") }}" class="date" itemprop="datePublished">
             {{ page.date | date(format="%d %b %Y") }}
         </time>
     </div>
-    <div itemprop="articleBody">
+    <div itemprop="articleBody" class="article">
         {{ page.content | safe }}
     </div>
 </article>

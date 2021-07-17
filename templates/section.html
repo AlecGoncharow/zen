@@ -1,27 +1,34 @@
 {% extends "index.html" %}
 
 {% block main %}
+<article itemscope itemtype="http://schema.org/BlogPosting">
+    <h1>
+        <a href="..">..</a>/{{ section.title }}
+        {% if section.extra.repo %}
+        <a itemprop="url" href="https://github.com/{{ config.extra.github }}/{{ section.extra.repo }}" target="_blank" rel="noopener noreferrer">
+            <img class="icon" src="{{ config.base_url }}/icons/github.svg" alt="Github">
+        </a>
+        {% endif %}
+    </h1>
+
+    <div class="border"></div>
     {% if section.pages %}
-        <h1>{{ section.title }}</h1>
-        <div class="border"></div>
-        <ul>
+    <ul>
         {% for p in section.pages %}
-            <li>
-                <a href="{{ p.permalink | safe}}">
-                    {{ p.title }}
-                </a>
-            </li>
+        <li>
+            {%if p.date %}
+            <small>{{ p.date }}</small>
+            {% endif %}
+            <a href="{{ p.permalink | safe}}">
+                {{ p.title }}
+            </a>
+        </li>
         {% endfor %}
-        </ul>
-    {% else %}
-        <article itemscope itemtype="http://schema.org/BlogPosting">
-            <div itemprop="headline">
-                <h1>{{ section.title }}</h1>
-                <div class="border"></div>
-            </div>
-            <div itemprop="articleBody">
-                {{ section.content | safe }}
-            </div>
-        </article>
+    </ul>
+
     {% endif %}
+    <div itemprop="articleBody" class="article">
+        {{ section.content | safe }}
+    </div>
+</article>
 {% endblock main %}

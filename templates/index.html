@@ -5,8 +5,15 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+        <meta property="og:site_name" content="{{ config.title }}" />
+        <meta property="og:locale" content="en-us" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="{{ config.base_url }}" />
+        <meta property="og:image" content="{{get_url(path="images/logo.png", trailing_slash=false)}}">
+
         {% if config.description -%}
         <meta name="description" content="{{ config.description }}">
+        <meta property="og:description" content="{{ config.description }}">
         {% endif %}
 
         <title>{% block title %}{{ config.title }}{% endblock title %}</title>
@@ -26,6 +33,7 @@
                 </div>
                 <div class="header-right">
                     <nav itemscope itemtype="http://schema.org/SiteNavigationElement">
+                        <ul class="nav">
                         {% set index = get_section(path="_index.md") %}
                         {% for s in index.subsections %}
                             {% set subsection = get_section(path=s) %}
@@ -49,6 +57,7 @@
                             </a>
                         </li>
                         {% endif %}
+                        </ul>
                     </nav>
                 </div>
             </header>
@@ -56,7 +65,7 @@
         {% block content %}
         <main>
             {% block main %}
-            <h1>Index</h1>
+            <h1>/</h1>
             <div class="border"></div>
                 <ul>
                 {% set index = get_section(path="_index.md") %}
@@ -71,6 +80,9 @@
                     <ul>
                         {% for page in subsection.pages %}
                         <li>
+                            {% if page.date %}
+                            <small>{{ page.date }}</small>
+                            {% endif %}
                         <a href="{{ page.permalink | safe}}">
                             {{ page.title }}
                         </a>
@@ -91,7 +103,7 @@
                     Copyright &copy; {{ config.extra.author }}
                 </small>
                 <small class="footer-right">
-                    Powered by <a href="https://www.getzola.org">Zola</a> | Theme <a href="https://github.com/barlog-m/oceanic-zen">Oceanic Zen</a>
+                    Powered by <a href="https://www.getzola.org">Zola</a> | Theme  <a href="https://github.com/alecgoncharow/zen">Zen</a> <small>fork of <a href="https://github.com/barlog-m/oceanic-zen">Oceanic Zen</a></small>
                 </small>
             </div>
         {% endblock footer %}
