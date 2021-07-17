@@ -6,13 +6,21 @@ Zen is a fork of [oceanic-zen](https://github.com/barlog-m/oceanic-zen)
 
 ## Options
 
-Theme supported some extra options
+Theme supported extra options globally
 
 ```toml
 [extra]
 author = "blog author name"
 github = "github author name"
 twitter = "twitter author name"
+```
+
+Theme support option on pages and sections
+```toml
+[extra]
+# This option will append the value of this string to the string configured for the 
+# `github` option and will insert a link next to the title
+repo="zen"
 ```
 
 Fonts
