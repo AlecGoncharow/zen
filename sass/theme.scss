@@ -272,7 +272,7 @@ img {
 }
 
 .sidebar-content p {
-    margin: 0.8rem;
+    margin: 0;
 }
 
 
@@ -293,6 +293,7 @@ blockquote:before {
 }
 blockquote p {
     margin: 0;
+    display: inline;
 }
 
 figure {
