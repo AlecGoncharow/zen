@@ -271,8 +271,11 @@ img {
     line-height: 1.4;
 }
 
-.sidebar-content p {
-    margin: 0;
+.sidebar-content p:first-child {
+    margin-top: 0;
+}
+.sidebar-content p:last-child {
+    margin-bottom: 0;
 }
 
 
