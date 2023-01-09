@@ -271,10 +271,14 @@ img {
     line-height: 1.4;
 }
 
-.sidebar-content p:first-child {
+.sidebar-content *:first-child {
     margin-top: 0;
 }
-.sidebar-content p:last-child {
+.sidebar-content *:last-child {
+    margin-bottom: 0;
+}
+
+.sidebar-content ul {
     margin-bottom: 0;
 }
 
